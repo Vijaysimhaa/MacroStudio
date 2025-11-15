@@ -14,7 +14,7 @@
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-Native-purple?style=flat-square)](https://developer.apple.com/xcode/swiftui/)
 [![License](https://img.shields.io/badge/License-Coming%20Soon-green?style=flat-square)](LICENSE)
 
-[**Download for macOS**](docs/MacroStudio.dmg) · [Website](https://vijaysimhaa.github.io/MacroStudio/) · [Support](mailto:support@macrostudio.app)
+[**Download for macOS**](https://github.com/Vijaysimhaa/MacroStudio/releases/latest/download/MacroStudio.dmg) · [Website](https://vijaysimhaa.github.io/MacroStudio/) · [Support](mailto:avaldharvijaysimhaa@gmail.com)
 
 <br>
 
@@ -61,7 +61,7 @@ Built with **Swift and SwiftUI**. No Electron bloat—just 8MB of pure native pe
 
 ### Quick Install
 
-1. **[Download MacroStudio.dmg](docs/MacroStudio.dmg)** (5.6 MB)
+1. **[Download MacroStudio.dmg](https://github.com/Vijaysimhaa/MacroStudio/releases/latest/download/MacroStudio.dmg)** (5.6 MB)
 2. Open the DMG file
 3. Drag **MacroStudio** to your Applications folder
 4. Launch and grant required permissions
@@ -187,7 +187,7 @@ Visit the **[MacroStudio Website](https://vijaysimhaa.github.io/MacroStudio/)** 
 
 Need help? We're here for you!
 
-- 📧 **Email**: [support@macrostudio.app](mailto:support@macrostudio.app)
+- 📧 **Email**: [avaldharvijaysimhaa@gmail.com](mailto:avaldharvijaysimhaa@gmail.com)
 - 🐛 **Issues**: Coming soon when open sourced
 - 💬 **Community**: Discord server coming soon
 
@@ -207,6 +207,6 @@ Currently proprietary software. Source code will be released in the near future.
 
 **© 2025 MacroStudio. All rights reserved.**
 
-[Download](docs/MacroStudio.dmg) · [Website](https://vijaysimhaa.github.io/MacroStudio/) · [Contact](mailto:support@macrostudio.app)
+[Download](https://github.com/Vijaysimhaa/MacroStudio/releases/latest/download/MacroStudio.dmg) · [Website](https://vijaysimhaa.github.io/MacroStudio/) · [Contact](mailto:avaldharvijaysimhaa@gmail.com)
 
 </div>
