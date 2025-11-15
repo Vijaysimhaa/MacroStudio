@@ -14,7 +14,7 @@
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-Native-purple?style=flat-square)](https://developer.apple.com/xcode/swiftui/)
 [![License](https://img.shields.io/badge/License-Coming%20Soon-green?style=flat-square)](LICENSE)
 
-[**Download for macOS**](docs/MacroStudio.dmg) · [Website](https://navaneetha.github.io/MacroStudio/) · [Support](mailto:support@macrostudio.app)
+[**Download for macOS**](docs/MacroStudio.dmg) · [Website](https://vijaysimhaa.github.io/MacroStudio/) · [Support](mailto:support@macrostudio.app)
 
 <br>
 
@@ -160,7 +160,7 @@ MacroStudio is designed with **privacy first**:
 
 ## 📖 Documentation
 
-Visit the **[MacroStudio Website](https://navaneetha.github.io/MacroStudio/)** for:
+Visit the **[MacroStudio Website](https://vijaysimhaa.github.io/MacroStudio/)** for:
 
 - � Getting Started Guide
 - 🎥 Video Tutorials
@@ -207,6 +207,6 @@ Currently proprietary software. Source code will be released in the near future.
 
 **© 2025 MacroStudio. All rights reserved.**
 
-[Download](docs/MacroStudio.dmg) · [Website](https://navaneetha.github.io/MacroStudio/) · [Contact](mailto:support@macrostudio.app)
+[Download](docs/MacroStudio.dmg) · [Website](https://vijaysimhaa.github.io/MacroStudio/) · [Contact](mailto:support@macrostudio.app)
 
 </div>
