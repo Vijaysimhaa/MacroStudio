@@ -1,0 +1,35 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#5856D6;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5856D6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Logo -->
+  <g transform="translate(100, 200)">
+    <rect x="0" y="0" width="100" height="100" rx="24" fill="url(#textGradient)"/>
+    <path d="M20 60c15 15 25 15 40 0" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <circle cx="50" cy="40" r="12" fill="#fff" opacity="0.9"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="240" y="250" font-family="system-ui, -apple-system" font-size="72" font-weight="700" fill="#1d1d1f">MacroStudio</text>
+  <text x="240" y="310" font-family="system-ui, -apple-system" font-size="32" fill="#6e6e73">macOS Automation Atelier</text>
+  
+  <!-- Features -->
+  <text x="240" y="380" font-family="system-ui, -apple-system" font-size="20" fill="#1d1d1f">✓ Native SwiftUI interface</text>
+  <text x="240" y="420" font-family="system-ui, -apple-system" font-size="20" fill="#1d1d1f">✓ Precision recorder & visual editor</text>
+  <text x="240" y="460" font-family="system-ui, -apple-system" font-size="20" fill="#1d1d1f">✓ Scheduler & hotkey manager</text>
+  
+  <!-- Footer -->
+  <text x="1100" y="600" text-anchor="end" font-family="system-ui, -apple-system" font-size="18" font-weight="600" fill="url(#textGradient)">github.com/macrostudio</text>
+</svg>

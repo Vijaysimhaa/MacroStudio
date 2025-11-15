@@ -1,0 +1,35 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dmgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5856D6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- DMG Document -->
+  <rect x="50" y="40" width="300" height="360" rx="24" fill="#f5f5f7" filter="url(#shadow)"/>
+  <rect x="50" y="40" width="300" height="80" rx="24" fill="url(#dmgGradient)"/>
+  <rect x="50" y="115" width="300" height="5" fill="rgba(0,0,0,0.05)"/>
+  
+  <!-- App Icon -->
+  <g transform="translate(150, 180)">
+    <rect x="0" y="0" width="100" height="100" rx="24" fill="url(#dmgGradient)"/>
+    <path d="M20 60c15 15 25 15 40 0" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <circle cx="50" cy="40" r="12" fill="#fff" opacity="0.9"/>
+  </g>
+  
+  <!-- Text Label -->
+  <text x="200" y="320" text-anchor="middle" font-family="system-ui, -apple-system" font-size="20" font-weight="600" fill="#1d1d1f">MacroStudio.dmg</text>
+  <text x="200" y="345" text-anchor="middle" font-family="system-ui, -apple-system" font-size="14" fill="#6e6e73">5.6 MB</text>
+</svg>
