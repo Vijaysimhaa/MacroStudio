@@ -36,7 +36,7 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            background: linear-gradient(135deg, #f5f5f7 0%, #a1a1a6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -70,8 +70,8 @@
         }
         
         .nav-links a.active {
-            background: rgba(0, 122, 255, 0.2);
-            color: #00D9FF;
+            background: rgba(0, 0, 0, 0.3);
+            color: #ccc;
         }
         
         .content {
@@ -80,16 +80,16 @@
         }
         
         .section {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #333;
             border-radius: 16px;
             padding: 40px;
             transition: all 0.3s ease;
         }
         
         .section:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 122, 255, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #555;
         }
         
         .section h2 {
@@ -102,7 +102,7 @@
             font-size: 1.3rem;
             margin-top: 32px;
             margin-bottom: 16px;
-            color: #00D9FF;
+            color: #ccc;
         }
         
         .section h3:first-child {
@@ -141,8 +141,8 @@
         
         .step-number {
             display: inline-block;
-            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
-            color: white;
+            background: linear-gradient(135deg, #555 0%, #333 100%);
+            color: #fff;
             width: 32px;
             height: 32px;
             border-radius: 50%;
@@ -153,15 +153,15 @@
         }
         
         .tip {
-            background: rgba(0, 122, 255, 0.1);
-            border-left: 4px solid #007AFF;
+            background: rgba(100, 100, 100, 0.15);
+            border-left: 4px solid #666;
             padding: 16px 20px;
             border-radius: 8px;
             margin: 20px 0;
         }
         
         .tip strong {
-            color: #00D9FF;
+            color: #ddd;
         }
         
         footer {
@@ -185,17 +185,43 @@
             display: inline-block;
             margin-bottom: 40px;
             padding: 10px 20px;
-            background: rgba(0, 122, 255, 0.1);
-            border: 1px solid rgba(0, 122, 255, 0.3);
+            background: rgba(100, 100, 100, 0.2);
+            border: 2px solid #555;
             border-radius: 8px;
-            color: #007AFF;
+            color: #ccc;
             text-decoration: none;
             transition: all 0.3s ease;
         }
         
         .back-button:hover {
-            background: rgba(0, 122, 255, 0.2);
-            border-color: rgba(0, 122, 255, 0.6);
+            background: rgba(100, 100, 100, 0.3);
+            border-color: #777;
+        }
+        
+        /* Keyboard key styles */
+        .kbd-key {
+            display: inline-block;
+            background: linear-gradient(180deg, #555 0%, #333 100%);
+            border: 2px solid #222;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 0 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #f5f5f7;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            white-space: nowrap;
+            text-align: center;
+            min-width: 44px;
+        }
+        
+        .keyboard-shortcut {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 16px 0;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -297,14 +323,71 @@
             
             <div class="section">
                 <h2>Keyboard Shortcuts</h2>
-                <div class="code-block">
-⌘ + N     Create new macro
-⌘ + E     Edit selected macro
-⌘ + D     Duplicate macro
-⌘ + R     Record new action
-Space     Play/Stop recording
-⌘ + S     Save macro
-⌘ + ⌥ + D   Delete macro
+                <p style="margin-bottom: 32px;">Press these key combinations to quickly perform common actions:</p>
+                
+                <div style="display: grid; gap: 24px;">
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Create new macro</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">⌘</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">N</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Edit selected macro</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">⌘</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">E</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Duplicate macro</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">⌘</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">D</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Record new action</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">⌘</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">R</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Play or Stop recording</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">Space</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Save macro</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">⌘</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">S</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="margin-bottom: 12px; color: #ddd;"><strong>Delete macro</strong></p>
+                        <div class="keyboard-shortcut">
+                            <span class="kbd-key">⌘</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">⌥</span>
+                            <span style="color: #888;">+</span>
+                            <span class="kbd-key">D</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
