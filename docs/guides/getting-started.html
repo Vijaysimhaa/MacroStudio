@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MacroStudio Getting Started Guide - Learn how to install and create your first macro">
+    <title>Getting Started - MacroStudio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(0, 122, 255, 0.1);
+            color: #5856D6;
+        }
+        
+        .nav-links a.active {
+            background: rgba(0, 122, 255, 0.2);
+            color: #00D9FF;
+        }
+        
+        .content {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 122, 255, 0.4);
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+        
+        .section h3 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: #00D9FF;
+        }
+        
+        .section h3:first-child {
+            margin-top: 0;
+        }
+        
+        .section p {
+            color: #a1a1a6;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        .section ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .section li {
+            color: #a1a1a6;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: #00D9FF;
+            line-height: 1.6;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+        
+        .tip {
+            background: rgba(0, 122, 255, 0.1);
+            border-left: 4px solid #007AFF;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .tip strong {
+            color: #00D9FF;
+        }
+        
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #6e6e73;
+        }
+        
+        footer a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.3);
+            border-radius: 8px;
+            color: #007AFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Back to Home</a>
+        
+        <header>
+            <h1>🚀 Getting Started Guide</h1>
+            <p>Learn how to install and create your first macro in minutes</p>
+        </header>
+        
+        <div class="nav-links">
+            <a href="/guides/getting-started.html" class="active">Getting Started</a>
+            <a href="/examples/use-cases.html">Use Case Examples</a>
+            <a href="/help/troubleshooting.html">Troubleshooting</a>
+            <a href="/help/faq.html">FAQ</a>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>System Requirements</h2>
+                <ul>
+                    <li><strong>macOS 13.0</strong> or later (Ventura or newer)</li>
+                    <li><strong>Apple Silicon</strong> (M1/M2/M3) or <strong>Intel Mac</strong></li>
+                    <li><strong>5.6 MB</strong> disk space</li>
+                    <li>Accessibility permissions (granted on first launch)</li>
+                </ul>
+                <div class="tip">
+                    <strong>💡 Tip:</strong> Make sure to grant MacroStudio Accessibility permissions in System Preferences for full functionality.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Installation</h2>
+                
+                <h3><span class="step-number">1</span>Download</h3>
+                <p>Download the latest MacroStudio DMG file from the home page.</p>
+                
+                <h3><span class="step-number">2</span>Mount</h3>
+                <p>Double-click the DMG file to mount it. You'll see the MacroStudio icon and the Applications folder.</p>
+                
+                <h3><span class="step-number">3</span>Install</h3>
+                <p>Drag the MacroStudio app to the Applications folder.</p>
+                
+                <h3><span class="step-number">4</span>Launch</h3>
+                <p>Open Applications folder and double-click MacroStudio to launch.</p>
+                
+                <h3><span class="step-number">5</span>Grant Permissions</h3>
+                <p>MacroStudio will ask for Accessibility permissions. Click "Open System Preferences" and enable MacroStudio under Security & Privacy > Accessibility.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Creating Your First Macro</h2>
+                
+                <h3>Step 1: Open MacroStudio</h3>
+                <p>Launch the app from your Applications folder. You'll see the main window with the macro list.</p>
+                
+                <h3>Step 2: Create a New Macro</h3>
+                <p>Click the "+" button to create a new macro. Give it a descriptive name like "Copy & Format" or "Send Email".</p>
+                
+                <h3>Step 3: Set a Hotkey</h3>
+                <p>Click on the hotkey field and press your desired keyboard shortcut. For example: <code>⌘ + ⌥ + C</code> (Command + Option + C)</p>
+                
+                <div class="tip">
+                    <strong>💡 Tip:</strong> Avoid using hotkeys that conflict with system shortcuts. MacroStudio will warn you if there's a conflict.
+                </div>
+                
+                <h3>Step 4: Record Your Actions</h3>
+                <p>Click the "Record" button and perform the actions you want to automate:</p>
+                <ul>
+                    <li>Type text</li>
+                    <li>Click buttons</li>
+                    <li>Move the mouse</li>
+                    <li>Press keyboard shortcuts</li>
+                    <li>Switch between apps</li>
+                </ul>
+                
+                <h3>Step 5: Stop Recording</h3>
+                <p>When done, click "Stop" to finish recording. MacroStudio captures every action with millisecond precision.</p>
+                
+                <h3>Step 6: Test & Edit</h3>
+                <p>Press your hotkey to run the macro. If something isn't right, use the Visual Editor to tweak timing or adjust specific actions.</p>
+                
+                <h3>Step 7: Save</h3>
+                <p>Click "Save" to store your macro. It's now ready to use anytime!</p>
+            </div>
+            
+            <div class="section">
+                <h2>Pro Tips</h2>
+                <ul>
+                    <li><strong>Add Delays:</strong> Click between actions to add waiting time (useful for app loading)</li>
+                    <li><strong>Edit Events:</strong> Double-click any action in the timeline to modify it</li>
+                    <li><strong>Duplicate Macros:</strong> Right-click a macro to duplicate and modify it</li>
+                    <li><strong>Schedule Macros:</strong> Set a macro to run at specific times with the Scheduler</li>
+                    <li><strong>Mouse Precision:</strong> Use "Wait for Element" to click the same spot reliably</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Keyboard Shortcuts</h2>
+                <div class="code-block">
+⌘ + N     Create new macro
+⌘ + E     Edit selected macro
+⌘ + D     Duplicate macro
+⌘ + R     Record new action
+Space     Play/Stop recording
+⌘ + S     Save macro
+⌘ + ⌥ + D   Delete macro
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Need Help?</h2>
+                <p>Check out our other resources:</p>
+                <ul>
+                    <li><a href="/examples/use-cases.html" style="color: #007AFF;">Use Case Examples</a> - Real-world automation examples</li>
+                    <li><a href="/help/troubleshooting.html" style="color: #007AFF;">Troubleshooting</a> - Common issues and solutions</li>
+                    <li><a href="/help/faq.html" style="color: #007AFF;">FAQ</a> - Frequently asked questions</li>
+                    <li><a href="mailto:avaldharvijaysimhaa@gmail.com" style="color: #007AFF;">Email Support</a> - Contact us directly</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 MacroStudio. Coming soon to open source.</p>
+            <p><a href="/">Home</a> · <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub</a> · <a href="mailto:avaldharvijaysimhaa@gmail.com">Support</a></p>
+        </footer>
+    </div>
+</body>
+</html>

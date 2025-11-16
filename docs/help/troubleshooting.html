@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MacroStudio Troubleshooting - Common issues and solutions">
+    <title>Troubleshooting - MacroStudio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(0, 122, 255, 0.1);
+            color: #5856D6;
+        }
+        
+        .nav-links a.active {
+            background: rgba(0, 122, 255, 0.2);
+            color: #00D9FF;
+        }
+        
+        .content {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .issue {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .issue:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 122, 255, 0.4);
+        }
+        
+        .issue h2 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .issue h2::before {
+            content: '▶';
+            display: inline-block;
+            color: #007AFF;
+            font-size: 1.2rem;
+        }
+        
+        .issue.expanded h2::before {
+            content: '▼';
+        }
+        
+        .issue-content {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .issue.expanded .issue-content {
+            display: block;
+        }
+        
+        .issue p {
+            color: #a1a1a6;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        .issue h3 {
+            font-size: 1.1rem;
+            color: #00D9FF;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .issue h3:first-child {
+            margin-top: 0;
+        }
+        
+        .issue ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .issue li {
+            color: #a1a1a6;
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #00D9FF;
+            line-height: 1.6;
+        }
+        
+        .warning {
+            background: rgba(255, 59, 48, 0.1);
+            border-left: 4px solid #FF3B30;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        
+        .success {
+            background: rgba(52, 199, 89, 0.1);
+            border-left: 4px solid #34C759;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.3);
+            border-radius: 8px;
+            color: #007AFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 0.6);
+        }
+        
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #6e6e73;
+        }
+        
+        footer a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Back to Home</a>
+        
+        <header>
+            <h1>🔧 Troubleshooting</h1>
+            <p>Solutions to common issues and problems</p>
+        </header>
+        
+        <div class="nav-links">
+            <a href="/guides/getting-started.html">Getting Started</a>
+            <a href="/examples/use-cases.html">Use Case Examples</a>
+            <a href="/help/troubleshooting.html" class="active">Troubleshooting</a>
+            <a href="/help/faq.html">FAQ</a>
+        </div>
+        
+        <div class="content">
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>MacroStudio won't launch or crashes on startup</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>App icon bounces in dock but doesn't open</li>
+                        <li>Immediate crash after clicking the app</li>
+                        <li>"MacroStudio quit unexpectedly" message</li>
+                    </ul>
+                    
+                    <h3>Solutions (try in order):</h3>
+                    <ul>
+                        <li><strong>Restart your Mac</strong> - This solves 70% of launch issues</li>
+                        <li><strong>Check macOS version</strong> - MacroStudio requires macOS 13.0+. Check System Preferences → General → About</li>
+                        <li><strong>Delete preferences</strong>
+                            <div class="code-block">
+rm ~/Library/Preferences/com.macrostudio.app.plist
+                            </div>
+                        </li>
+                        <li><strong>Reinstall the app</strong>
+                            <ul>
+                                <li>Delete MacroStudio from Applications</li>
+                                <li>Download fresh DMG from our website</li>
+                                <li>Mount and install again</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <div class="warning">
+                        <strong>Still stuck?</strong> <a href="mailto:avaldharvijaysimhaa@gmail.com" style="color: #FF3B30;">Email us your system info</a> (System Report → Software).
+                    </div>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Accessibility permissions not working</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Recording doesn't capture actions</li>
+                        <li>Macros don't execute properly</li>
+                        <li>"Permission denied" errors</li>
+                    </ul>
+                    
+                    <h3>Solution:</h3>
+                    <ol>
+                        <li>Open <strong>System Settings</strong> → <strong>Privacy & Security</strong> → <strong>Accessibility</strong></li>
+                        <li>Look for MacroStudio in the list</li>
+                        <li>If present but disabled, toggle it ON</li>
+                        <li>If not in list, click the <strong>+</strong> button</li>
+                        <li>Navigate to Applications folder and select MacroStudio</li>
+                        <li>Click <strong>Open</strong></li>
+                        <li>Restart MacroStudio</li>
+                    </ol>
+                    
+                    <h3>Advanced fix:</h3>
+                    <p>If permissions still don't work, grant Full Disk Access:</p>
+                    <ol>
+                        <li>System Settings → Privacy & Security → Full Disk Access</li>
+                        <li>Click <strong>+</strong> and add MacroStudio</li>
+                    </ol>
+                    
+                    <div class="success">
+                        <strong>✓ Tip:</strong> After granting permissions, you may need to restart your Mac for changes to take effect.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Hotkey not triggering macros</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Hotkey combination is not recognized</li>
+                        <li>Macro only works sometimes</li>
+                        <li>Another app responds instead of MacroStudio</li>
+                    </ul>
+                    
+                    <h3>Common causes & fixes:</h3>
+                    
+                    <h3>1. Hotkey Conflict</h3>
+                    <p>Your hotkey might conflict with system or app shortcuts.</p>
+                    <ul>
+                        <li>Try different key combinations: ⌘ + ⌥ + letter</li>
+                        <li>Avoid: ⌘ + Q, ⌘ + W, ⌘ + Tab (system shortcuts)</li>
+                        <li>Check what the current app uses in its keyboard shortcuts</li>
+                    </ul>
+                    
+                    <h3>2. MacroStudio not in focus</h3>
+                    <p>Make sure MacroStudio is running in the background.</p>
+                    <ul>
+                        <li>Check if MacroStudio appears in the dock</li>
+                        <li>Keep the app open (minimize it if you prefer)</li>
+                    </ul>
+                    
+                    <h3>3. Macro not enabled</h3>
+                    <p>Verify the macro is toggled ON in MacroStudio:</p>
+                    <ul>
+                        <li>Open MacroStudio</li>
+                        <li>Select your macro</li>
+                        <li>Check if the toggle switch is enabled (should be green)</li>
+                    </ul>
+                    
+                    <div class="success">
+                        <strong>✓ Pro Tip:</strong> Use ⌘ + ⌥ + Shift + letter combinations - they're rarely used by other apps.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Macro executes but actions don't work</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Macro runs but nothing happens</li>
+                        <li>Clicks go to wrong locations</li>
+                        <li>Text is typed in wrong app</li>
+                    </ul>
+                    
+                    <h3>Common causes & fixes:</h3>
+                    
+                    <h3>1. App switching delay</h3>
+                    <p>The target app needs time to launch or come to foreground.</p>
+                    <ul>
+                        <li>In the macro editor, add delays between actions</li>
+                        <li>Use: 1-2 seconds after app switching, 0.5-1 second for UI rendering</li>
+                    </ul>
+                    
+                    <h3>2. Screen position changed</h3>
+                    <p>If you recorded on one screen and play on another, clicks won't land on the same spot.</p>
+                    <ul>
+                        <li>Re-record the macro on your current setup</li>
+                        <li>Or, use "Wait for Element" mode (if available) for more reliable clicking</li>
+                    </ul>
+                    
+                    <h3>3. Window not in focus</h3>
+                    <p>Make sure the target window is active before executing.</p>
+                    <ul>
+                        <li>Add "Click window" action at the start of macro</li>
+                        <li>Use "Bring app to front" action if available</li>
+                    </ul>
+                    
+                    <h3>4. UI elements changed</h3>
+                    <p>If the app updated, buttons might have moved.</p>
+                    <ul>
+                        <li>Open macro in editor and update click positions</li>
+                        <li>Delete and re-record actions that no longer work</li>
+                    </ul>
+                    
+                    <div class="warning">
+                        <strong>Debug tip:</strong> Record with a 0.5s delay between steps, then gradually reduce delays after confirming it works.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Macro runs too slow</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Excessive delays between actions</li>
+                        <li>Unnecessary pauses while running</li>
+                        <li>Takes 2x longer than manual execution</li>
+                    </ul>
+                    
+                    <h3>Solutions:</h3>
+                    
+                    <h3>1. Optimize delays</h3>
+                    <ul>
+                        <li>Edit macro and find actions with very long delays</li>
+                        <li>Reduce delays gradually (test after each change)</li>
+                        <li>Typical delays: 100-300ms between UI interactions</li>
+                    </ul>
+                    
+                    <h3>2. Remove unnecessary actions</h3>
+                    <ul>
+                        <li>Delete duplicate clicks or mouse movements</li>
+                        <li>Remove clicks that aren't needed</li>
+                        <li>Combine multiple typing actions into one</li>
+                    </ul>
+                    
+                    <h3>3. Check system resources</h3>
+                    <ul>
+                        <li>Close heavy applications (browsers with many tabs, etc.)</li>
+                        <li>Check Activity Monitor for high CPU/Memory usage</li>
+                        <li>Restart Mac if memory usage is consistently high</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Macro recordings are inaccurate</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Mouse clicks recorded in wrong positions</li>
+                        <li>Text typed with typos</li>
+                        <li>Actions missing from recording</li>
+                    </ul>
+                    
+                    <h3>Solutions:</h3>
+                    
+                    <h3>1. Verify recording started</h3>
+                    <ul>
+                        <li>Make sure you see "Recording..." indicator</li>
+                        <li>Perform actions slowly and deliberately</li>
+                        <li>Don't move too fast - leave 0.5s between actions</li>
+                    </ul>
+                    
+                    <h3>2. Check accessibility permissions again</h3>
+                    <p>Sometimes permissions get revoked after system updates.</p>
+                    <ul>
+                        <li>Go to System Settings → Privacy & Security → Accessibility</li>
+                        <li>Remove MacroStudio from list</li>
+                        <li>Add it again</li>
+                        <li>Restart Mac</li>
+                    </ul>
+                    
+                    <h3>3. Manually edit recording</h3>
+                    <ul>
+                        <li>Open macro in Visual Editor</li>
+                        <li>Delete incorrect actions</li>
+                        <li>Re-record just those parts</li>
+                    </ul>
+                    
+                    <div class="success">
+                        <strong>✓ Best practice:</strong> Record at a comfortable pace. Rushing during recording leads to inaccuracies.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Scheduler doesn't run macros</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Scheduled macro doesn't execute at set time</li>
+                        <li>MacroStudio closed when schedule triggered</li>
+                        <li>No notification that macro ran</li>
+                    </ul>
+                    
+                    <h3>Solutions:</h3>
+                    
+                    <h3>1. Keep MacroStudio running</h3>
+                    <p>The app must be open (not necessarily in foreground) for scheduler to work.</p>
+                    <ul>
+                        <li>Don't quit MacroStudio</li>
+                        <li>Minimize it to dock instead</li>
+                        <li>Enable "Run in background" if available in settings</li>
+                    </ul>
+                    
+                    <h3>2. Check Mac isn't sleeping</h3>
+                    <ul>
+                        <li>System Settings → Lock Screen → Turn off display after (set to Never)</li>
+                        <li>Or: Never allow Mac to sleep automatically</li>
+                    </ul>
+                    
+                    <h3>3. Verify schedule settings</h3>
+                    <ul>
+                        <li>Open macro in MacroStudio</li>
+                        <li>Click Schedule tab</li>
+                        <li>Confirm date, time, and recurrence are correct</li>
+                        <li>Check if macro is enabled (toggle should be ON)</li>
+                    </ul>
+                    
+                    <h3>4. Check logs</h3>
+                    <p>If available, check MacroStudio's activity log or console output to see if scheduler ran.</p>
+                    
+                    <div class="warning">
+                        <strong>Important:</strong> For scheduled macros, keep MacroStudio window visible or enable "Run in background" mode.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Can't save or delete macros</h2>
+                <div class="issue-content">
+                    <h3>Symptoms:</h3>
+                    <ul>
+                        <li>Save button is grayed out</li>
+                        <li>Delete macro but it reappears</li>
+                        <li>Changes not persisted after restart</li>
+                    </ul>
+                    
+                    <h3>Solutions:</h3>
+                    
+                    <h3>1. Check file permissions</h3>
+                    <p>MacroStudio may not have permission to save files.</p>
+                    <div class="code-block">
+# Run this in Terminal:
+chmod u+w ~/Library/Application\ Support/MacroStudio/
+                    </div>
+                    
+                    <h3>2. Free up disk space</h3>
+                    <ul>
+                        <li>Check available storage: Apple menu → About This Mac → Storage</li>
+                        <li>Need at least 100MB free space</li>
+                        <li>Delete old unused files/apps if needed</li>
+                    </ul>
+                    
+                    <h3>3. Reset MacroStudio data</h3>
+                    <ul>
+                        <li><strong>Backup first!</strong> Export your macros if possible</li>
+                        <li>Delete: ~/Library/Application Support/MacroStudio/</li>
+                        <li>Restart MacroStudio</li>
+                        <li>Create test macro to verify saving works</li>
+                    </ul>
+                    
+                    <h3>4. Quit and reopen</h3>
+                    <ul>
+                        <li>Force quit MacroStudio: ⌘ + ⌥ + Esc → select MacroStudio → Force Quit</li>
+                        <li>Wait 5 seconds</li>
+                        <li>Reopen the app</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="issue" onclick="this.classList.toggle('expanded')">
+                <h2>Still having issues?</h2>
+                <div class="issue-content">
+                    <h3>Get help:</h3>
+                    <ul>
+                        <li><strong>📧 Email Support:</strong> <a href="mailto:avaldharvijaysimhaa@gmail.com" style="color: #007AFF;">avaldharvijaysimhaa@gmail.com</a></li>
+                        <li><strong>📖 Documentation:</strong> <a href="/guides/getting-started.html" style="color: #007AFF;">Getting Started Guide</a></li>
+                        <li><strong>💡 Examples:</strong> <a href="/examples/use-cases.html" style="color: #007AFF;">Use Case Examples</a></li>
+                        <li><strong>❓ FAQ:</strong> <a href="/help/faq.html" style="color: #007AFF;">Frequently Asked Questions</a></li>
+                    </ul>
+                    
+                    <h3>When emailing support, please include:</h3>
+                    <ul>
+                        <li>macOS version (Apple → About This Mac)</li>
+                        <li>MacroStudio version</li>
+                        <li>Description of the issue</li>
+                        <li>Steps to reproduce the problem</li>
+                        <li>Screenshot if applicable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 MacroStudio. Coming soon to open source.</p>
+            <p><a href="/">Home</a> · <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub</a> · <a href="mailto:avaldharvijaysimhaa@gmail.com">Support</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Expand first issue by default
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstIssue = document.querySelector('.issue');
+            if (firstIssue) {
+                firstIssue.classList.add('expanded');
+            }
+        });
+    </script>
+</body>
+</html>

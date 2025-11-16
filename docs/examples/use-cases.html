@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MacroStudio Use Case Examples - Real-world automation examples">
+    <title>Use Case Examples - MacroStudio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(0, 122, 255, 0.1);
+            color: #5856D6;
+        }
+        
+        .nav-links a.active {
+            background: rgba(0, 122, 255, 0.2);
+            color: #00D9FF;
+        }
+        
+        .content {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .use-case {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .use-case:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 122, 255, 0.4);
+        }
+        
+        .use-case h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .use-case .category {
+            display: inline-block;
+            background: rgba(0, 122, 255, 0.15);
+            color: #00D9FF;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .use-case p {
+            color: #a1a1a6;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        .use-case h3 {
+            font-size: 1.1rem;
+            color: #00D9FF;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .use-case ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .use-case li {
+            color: #a1a1a6;
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #00D9FF;
+            line-height: 1.6;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .difficulty.beginner {
+            color: #34C759;
+        }
+        
+        .difficulty.intermediate {
+            color: #FF9500;
+        }
+        
+        .difficulty.advanced {
+            color: #FF3B30;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.3);
+            border-radius: 8px;
+            color: #007AFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 0.6);
+        }
+        
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #6e6e73;
+        }
+        
+        footer a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Back to Home</a>
+        
+        <header>
+            <h1>💡 Use Case Examples</h1>
+            <p>Real-world automation examples to inspire your macros</p>
+        </header>
+        
+        <div class="nav-links">
+            <a href="/guides/getting-started.html">Getting Started</a>
+            <a href="/examples/use-cases.html" class="active">Use Case Examples</a>
+            <a href="/help/troubleshooting.html">Troubleshooting</a>
+            <a href="/help/faq.html">FAQ</a>
+        </div>
+        
+        <div class="content">
+            <div class="use-case">
+                <h2>Scheduled Daily Standup Report</h2>
+                <div class="category">Work Automation</div>
+                <span class="difficulty beginner">Beginner</span>
+                
+                <p>Automatically open Slack, navigate to a specific channel, and type a standup message every morning at 9 AM.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Launches Slack (or activates if already open)</li>
+                    <li>Searches for the #daily-standup channel</li>
+                    <li>Types a pre-formatted standup template</li>
+                    <li>Presses Enter to post</li>
+                </ul>
+                
+                <h3>Setup:</h3>
+                <ul>
+                    <li>Create a new macro named "Daily Standup"</li>
+                    <li>Set hotkey to ⌘ + ⌥ + S</li>
+                    <li>Record: Open Slack → Search channel → Type message</li>
+                    <li>Use the Scheduler to run at 9:00 AM every weekday</li>
+                </ul>
+            </div>
+            
+            <div class="use-case">
+                <h2>Copy & Format Text for Social Media</h2>
+                <div class="category">Content Creation</div>
+                <span class="difficulty beginner">Beginner</span>
+                
+                <p>Format selected text with hashtags, emojis, and copy to clipboard in one shortcut.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Copies selected text</li>
+                    <li>Opens a text editor or Notes app</li>
+                    <li>Pastes text with formatting (adds hashtags, line breaks)</li>
+                    <li>Copies final version to clipboard</li>
+                </ul>
+                
+                <h3>Use cases:</h3>
+                <ul>
+                    <li>Twitter/X posts with hashtags</li>
+                    <li>LinkedIn posts with formatting</li>
+                    <li>Instagram captions</li>
+                </ul>
+            </div>
+            
+            <div class="use-case">
+                <h2>Email Signature & Template Auto-fill</h2>
+                <div class="category">Email Automation</div>
+                <span class="difficulty intermediate">Intermediate</span>
+                
+                <p>Quickly create emails with pre-formatted signatures and templates.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Opens Mail app (or Gmail in browser)</li>
+                    <li>Clicks "New Message"</li>
+                    <li>Types a professional signature block</li>
+                    <li>Positions cursor for recipient field</li>
+                </ul>
+                
+                <h3>Tips:</h3>
+                <ul>
+                    <li>Create separate macros for different email types (Follow-up, Complaint, etc.)</li>
+                    <li>Use delays to wait for app responses</li>
+                    <li>Add multiple versions with different templates</li>
+                </ul>
+            </div>
+            
+            <div class="use-case">
+                <h2>Backup Files to Cloud Storage</h2>
+                <div class="category">System Automation</div>
+                <span class="difficulty intermediate">Intermediate</span>
+                
+                <p>Automatically backup important files to iCloud, Google Drive, or Dropbox.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Opens Finder</li>
+                    <li>Navigates to specific folders</li>
+                    <li>Copies files to cloud storage folder</li>
+                    <li>Logs completion to a notification</li>
+                </ul>
+                
+                <h3>Best practices:</h3>
+                <ul>
+                    <li>Schedule to run daily at specific times</li>
+                    <li>Add error handling (wait for operations to complete)</li>
+                    <li>Consider file size to avoid overloading network</li>
+                </ul>
+            </div>
+            
+            <div class="use-case">
+                <h2>Multi-app Login Sequence</h2>
+                <div class="category">Productivity</div>
+                <span class="difficulty advanced">Advanced</span>
+                
+                <p>Launch multiple apps and log in automatically (for personal devices only).</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Opens multiple apps (Mail, Slack, Discord, VS Code)</li>
+                    <li>Waits for each app to load</li>
+                    <li>Logs in if auto-login is disabled</li>
+                    <li>Arranges windows side-by-side</li>
+                </ul>
+                
+                <h3>⚠️ Security Note:</h3>
+                <p>Only use this on personal devices. Avoid storing passwords in macros; use system Keychain instead.</p>
+            </div>
+            
+            <div class="use-case">
+                <h2>Screenshot → Compress → Upload</h2>
+                <div class="category">File Management</div>
+                <span class="difficulty advanced">Advanced</span>
+                
+                <p>Take a screenshot, compress it, and upload to a file sharing service automatically.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Takes screenshot (⌘ + Shift + 4)</li>
+                    <li>Opens image compression tool</li>
+                    <li>Compresses image to desired quality</li>
+                    <li>Opens cloud storage app</li>
+                    <li>Uploads compressed image</li>
+                    <li>Copies shareable link to clipboard</li>
+                </ul>
+                
+                <h3>Tools that work great:</h3>
+                <ul>
+                    <li>ImageOptim (free, Mac only)</li>
+                    <li>CloudApp</li>
+                    <li>Dropbox</li>
+                </ul>
+            </div>
+            
+            <div class="use-case">
+                <h2>Code Comment Generator</h2>
+                <div class="category">Development</div>
+                <span class="difficulty intermediate">Intermediate</span>
+                
+                <p>Insert code comments with date, author, and timestamp automatically.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Types a formatted comment block</li>
+                    <li>Includes current date and time</li>
+                    <li>Adds author name (via macro variable)</li>
+                    <li>Positions cursor for comment text</li>
+                </ul>
+                
+                <h3>Example output:</h3>
+                <div class="code-block">
+// ===================================
+// Author: John Doe
+// Date: Nov 16, 2025 | 3:45 PM
+// ===================================
+// TODO: [cursor here]
+                </div>
+            </div>
+            
+            <div class="use-case">
+                <h2>Time Tracking Toggle</h2>
+                <div class="category">Work Automation</div>
+                <span class="difficulty beginner">Beginner</span>
+                
+                <p>Quickly start/stop time tracking apps with a single hotkey.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Opens time tracking app (Toggle, Harvest, etc.)</li>
+                    <li>Clicks "Start Timer" button</li>
+                    <li>Selects current project</li>
+                    <li>Starts tracking automatically</li>
+                </ul>
+                
+                <h3>Perfect for:</h3>
+                <ul>
+                    <li>Freelancers billing by the hour</li>
+                    <li>Project managers tracking team time</li>
+                    <li>Productivity nerds monitoring focus time</li>
+                </ul>
+            </div>
+            
+            <div class="use-case">
+                <h2>Database Entry Automation</h2>
+                <div class="category">Data Entry</div>
+                <span class="difficulty advanced">Advanced</span>
+                
+                <p>Auto-fill repetitive database forms with common data patterns.</p>
+                
+                <h3>What it does:</h3>
+                <ul>
+                    <li>Opens database/form application</li>
+                    <li>Fills multiple fields with template data</li>
+                    <li>Handles dropdown selections</li>
+                    <li>Submits the form</li>
+                    <li>Moves to next entry</li>
+                </ul>
+                
+                <h3>Supports:</h3>
+                <ul>
+                    <li>Web forms (Google Forms, Typeform)</li>
+                    <li>Database apps (Airtable, Notion)</li>
+                    <li>CRM systems (HubSpot, Salesforce)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 MacroStudio. Coming soon to open source.</p>
+            <p><a href="/">Home</a> · <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub</a> · <a href="mailto:avaldharvijaysimhaa@gmail.com">Support</a></p>
+        </footer>
+    </div>
+</body>
+</html>

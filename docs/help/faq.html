@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MacroStudio FAQ - Frequently Asked Questions">
+    <title>FAQ - MacroStudio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(0, 122, 255, 0.1);
+            color: #5856D6;
+        }
+        
+        .nav-links a.active {
+            background: rgba(0, 122, 255, 0.2);
+            color: #00D9FF;
+        }
+        
+        .content {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .faq-section {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-section:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 122, 255, 0.4);
+        }
+        
+        .faq-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 28px;
+            color: #fff;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(0, 122, 255, 0.3);
+        }
+        
+        .faq-item {
+            margin-bottom: 24px;
+        }
+        
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-q {
+            font-size: 1.1rem;
+            color: #00D9FF;
+            font-weight: 600;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s ease;
+        }
+        
+        .faq-q:hover {
+            color: #5856D6;
+        }
+        
+        .faq-q::before {
+            content: '▶';
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #007AFF;
+            transition: transform 0.3s ease;
+            min-width: 16px;
+        }
+        
+        .faq-item.expanded .faq-q::before {
+            transform: rotate(90deg);
+        }
+        
+        .faq-a {
+            display: none;
+            color: #a1a1a6;
+            margin-left: 28px;
+            line-height: 1.8;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .faq-item.expanded .faq-a {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .faq-a a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        .faq-a a:hover {
+            text-decoration: underline;
+        }
+        
+        .faq-a strong {
+            color: #f5f5f7;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.3);
+            border-radius: 8px;
+            color: #007AFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 0.6);
+        }
+        
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #6e6e73;
+        }
+        
+        footer a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Back to Home</a>
+        
+        <header>
+            <h1>❓ Frequently Asked Questions</h1>
+            <p>Common questions about MacroStudio</p>
+        </header>
+        
+        <div class="nav-links">
+            <a href="/guides/getting-started.html">Getting Started</a>
+            <a href="/examples/use-cases.html">Use Case Examples</a>
+            <a href="/help/troubleshooting.html">Troubleshooting</a>
+            <a href="/help/faq.html" class="active">FAQ</a>
+        </div>
+        
+        <div class="content">
+            <!-- General Questions -->
+            <div class="faq-section">
+                <h2>General Questions</h2>
+                
+                <div class="faq-item expanded">
+                    <div class="faq-q">What is MacroStudio?</div>
+                    <div class="faq-a">
+                        MacroStudio is a native macOS automation tool that lets you record and playback keyboard shortcuts and mouse actions. It's perfect for automating repetitive tasks, creating workflows, and boosting productivity. Built entirely in Swift with SwiftUI for maximum performance and reliability.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Is MacroStudio free?</div>
+                    <div class="faq-a">
+                        Yes! MacroStudio is free to download and use. It's soon to be open sourced, so everyone can benefit from it. We believe automation should be accessible to everyone.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">How is MacroStudio different from Keyboard Maestro?</div>
+                    <div class="faq-a">
+                        While Keyboard Maestro is more feature-rich and programmable, MacroStudio focuses on simplicity and visual recording. Key differences:
+                        <br><br>
+                        <strong>MacroStudio:</strong>
+                        <br>✓ Visual recording and editing
+                        <br>✓ Simple, intuitive UI
+                        <br>✓ Lightweight (8MB vs Keyboard Maestro's 40MB+)
+                        <br>✓ Free and open source
+                        <br><br>
+                        <strong>Keyboard Maestro:</strong>
+                        <br>✓ More advanced scripting
+                        <br>✓ Conditional logic and loops
+                        <br>✓ More customization options
+                        <br>✓ Paid ($36)
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Will MacroStudio work on my Mac?</div>
+                    <div class="faq-a">
+                        MacroStudio requires <strong>macOS 13.0 (Ventura) or later</strong> and works on both Apple Silicon (M1/M2/M3) and Intel Macs. Check your macOS version: Apple menu → About This Mac → macOS version.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I use MacroStudio on multiple Macs?</div>
+                    <div class="faq-a">
+                        Yes! You can install MacroStudio on multiple Macs. Each installation is independent, so you'll need to create/export macros for each device separately. Export functionality is coming in a future update.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features & Capabilities -->
+            <div class="faq-section">
+                <h2>Features & Capabilities</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can MacroStudio record my mouse clicks and keyboard input?</div>
+                    <div class="faq-a">
+                        Yes! MacroStudio records both mouse movements, clicks, and keyboard input with millisecond precision. You can record any action you can manually perform, then play it back instantly with a hotkey.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I edit macros after recording?</div>
+                    <div class="faq-a">
+                        Absolutely! MacroStudio includes a Visual Editor where you can:
+                        <br>✓ Reorder actions
+                        <br>✓ Adjust delays between actions
+                        <br>✓ Modify click positions
+                        <br>✓ Edit typed text
+                        <br>✓ Add or remove individual actions
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Does MacroStudio support scheduling?</div>
+                    <div class="faq-a">
+                        Yes! You can schedule macros to run at specific times or on recurring schedules. Perfect for automating daily standups, weekly reports, or any time-based task. Note: MacroStudio must be running for scheduled macros to execute.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I create conditional macros (if/then logic)?</div>
+                    <div class="faq-a">
+                        The current version focuses on linear recording and playback. Advanced conditional logic and scripting are planned for future versions. For now, you can create separate macros for different scenarios.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">How many macros can I create?</div>
+                    <div class="faq-a">
+                        There's no limit! Create as many macros as you need. We have users with 100+ macros for different tasks and workflows. They're all easily accessible from the main window.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Privacy & Security -->
+            <div class="faq-section">
+                <h2>Privacy & Security</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Is MacroStudio safe and secure?</div>
+                    <div class="faq-a">
+                        Yes! MacroStudio is completely safe:
+                        <br>✓ Built with native macOS security features
+                        <br>✓ All data stays on your Mac (no cloud services)
+                        <br>✓ No telemetry or tracking
+                        <br>✓ No ads or third-party integrations
+                        <br>✓ Requires Accessibility permissions (just like any macro app)
+                        <br>✓ Coming soon to open source (code is auditable)
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Does MacroStudio send my data to the cloud?</div>
+                    <div class="faq-a">
+                        No! MacroStudio doesn't connect to the internet at all. All your macros, hotkeys, and schedules are stored locally on your Mac. You have complete privacy and control.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">What permissions does MacroStudio need?</div>
+                    <div class="faq-a">
+                        MacroStudio requires:
+                        <br><br>
+                        <strong>Accessibility:</strong> Required to monitor keyboard/mouse input and control apps. This is necessary for any macro recorder on macOS.
+                        <br><br>
+                        Optional (recommended):
+                        <br>✓ Full Disk Access - Allows macros to work with files on your entire Mac
+                        <br>✓ Screen Recording - Might be needed for some advanced features in future versions
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I use MacroStudio to automate password entry?</div>
+                    <div class="faq-a">
+                        We <strong>don't recommend</strong> storing passwords in macros. Instead:
+                        <br>✓ Use macOS Keychain with auto-fill features
+                        <br>✓ Use your browser's password manager
+                        <br>✓ Use 1Password, LastPass, or similar
+                        <br><br>
+                        This keeps passwords secure and out of your macro files.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Questions -->
+            <div class="faq-section">
+                <h2>Technical Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">How accurate is the recording?</div>
+                    <div class="faq-a">
+                        MacroStudio records with <strong>millisecond precision</strong>. Every click position, keystroke, and delay is captured accurately. This ensures reliable playback, especially for time-sensitive actions.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">What happens if my screen configuration changes?</div>
+                    <div class="faq-a">
+                        If you change your display setup (e.g., connecting to an external monitor or changing resolution), recorded click positions might be off. Solution:
+                        <br>✓ Re-record macros on your new setup
+                        <br>✓ Or manually adjust click coordinates in the Visual Editor
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can MacroStudio run macros in the background?</div>
+                    <div class="faq-a">
+                        Yes! Macros can run even when MacroStudio isn't the active window. Just keep it open (minimize to dock). The app will work behind other windows, browsers, and applications.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">How much disk space does MacroStudio use?</div>
+                    <div class="faq-a">
+                        The app is only <strong>8MB</strong> to download and install. Your macros are stored locally and use minimal space (typically a few KB per macro). Even with 100+ macros, storage usage remains negligible.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Does MacroStudio work with web apps?</div>
+                    <div class="faq-a">
+                        Yes! MacroStudio works with any app on your Mac:
+                        <br>✓ Web browsers (Chrome, Safari, Firefox)
+                        <br>✓ Web apps (Gmail, Slack, GitHub, etc.)
+                        <br>✓ Native apps
+                        <br>✓ Terminal and command-line tools
+                        <br><br>
+                        The only limitation: you can't control mouse/keyboard in full-screen games (they block system-level input).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Usage & Workflow -->
+            <div class="faq-section">
+                <h2>Usage & Workflow</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I export or backup my macros?</div>
+                    <div class="faq-a">
+                        Export/import functionality is coming in a future update. For now, macros are stored at: <code style="background: rgba(0,122,255,0.1); padding: 2px 6px; border-radius: 4px;">~/Library/Application Support/MacroStudio/</code>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">What's the longest macro I can create?</div>
+                    <div class="faq-a">
+                        There's no practical limit! MacroStudio can handle macros with thousands of actions. Very long macros (1000+ actions) might take a moment to load in the editor, but they'll run fine.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I pause a running macro?</div>
+                    <div class="faq-a">
+                        Once a macro starts executing, it runs to completion. However, you can press the hotkey again to start a different macro, or wait for the current one to finish. Pause functionality is planned for future versions.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I run multiple macros simultaneously?</div>
+                    <div class="faq-a">
+                        Currently, macros run one at a time. If you trigger a second macro while one is running, it will queue and start after the first completes. Parallel execution is being explored for future versions.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">How do I organize macros into folders or groups?</div>
+                    <div class="faq-a">
+                        Macro organization features (folders, tags, search) are planned for future updates. For now, use descriptive naming conventions (e.g., "Work_DailyStandup", "Email_Template_Follow-up") to keep macros organized.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform & Future -->
+            <div class="faq-section">
+                <h2>Platform & Future</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Is MacroStudio available for Windows or Linux?</div>
+                    <div class="faq-a">
+                        Currently, MacroStudio is macOS only. It's built specifically for macOS using Swift and SwiftUI for the best native experience.
+                        <br><br>
+                        <strong>Windows/Linux alternatives:</strong> AutoHotkey (Windows), xdotool (Linux)
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">When will MacroStudio be open sourced?</div>
+                    <div class="faq-a">
+                        Soon! The project is preparing for open source release. Follow our <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub repository</a> for updates. When released, anyone will be able to audit, contribute to, and build upon the code.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">What features are planned for future versions?</div>
+                    <div class="faq-a">
+                        Planned features include:
+                        <br>✓ Export/import macros
+                        <br>✓ Macro organization (folders, tags)
+                        <br>✓ Conditional logic (if/then)
+                        <br>✓ Variable support
+                        <br>✓ Advanced scheduling options
+                        <br>✓ Script editor for power users
+                        <br>✓ Team collaboration (optional)
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Can I suggest features or report bugs?</div>
+                    <div class="faq-a">
+                        Yes! Please <a href="mailto:avaldharvijaysimhaa@gmail.com">email us</a> or create an issue on our <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub repository</a>. We love feedback and actively work on improving MacroStudio based on user requests.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Does MacroStudio have a community?</div>
+                    <div class="faq-a">
+                        The MacroStudio community is growing! Connect with us:
+                        <br>✓ <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub Discussions</a> - Coming soon
+                        <br>✓ <a href="mailto:avaldharvijaysimhaa@gmail.com">Email</a> - Direct feedback
+                        <br>✓ Reddit - Share use cases and tips
+                        <br><br>
+                        Join to share macros, get tips, and connect with other automation enthusiasts!
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Still Have Questions? -->
+            <div class="faq-section">
+                <h2>Still Have Questions?</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Where can I get more help?</div>
+                    <div class="faq-a">
+                        <strong>Resources:</strong>
+                        <br>📖 <a href="/guides/getting-started.html">Getting Started Guide</a>
+                        <br>💡 <a href="/examples/use-cases.html">Use Case Examples</a>
+                        <br>🔧 <a href="/help/troubleshooting.html">Troubleshooting</a>
+                        <br><br>
+                        <strong>Direct Support:</strong>
+                        <br>📧 <a href="mailto:avaldharvijaysimhaa@gmail.com">Email us</a> - Response within 24 hours
+                        <br>🐙 <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub</a> - Report issues or contribute
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 MacroStudio. Coming soon to open source.</p>
+            <p><a href="/">Home</a> · <a href="https://github.com/Vijaysimhaa/MacroStudio">GitHub</a> · <a href="mailto:avaldharvijaysimhaa@gmail.com">Support</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Expand first FAQ item by default
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-q').addEventListener('click', function() {
+                    item.classList.toggle('expanded');
+                });
+            });
+            
+            // Expand first item
+            const firstItem = document.querySelector('.faq-item');
+            if (firstItem) {
+                firstItem.classList.add('expanded');
+            }
+        });
+    </script>
+</body>
+</html>
